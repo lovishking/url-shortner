@@ -158,7 +158,7 @@ export default function StatsPage() {
               Shortened URL
             </label>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-              <div className="flex-1 px-3 sm:px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-lg font-mono text-xs sm:text-sm break-all overflow-hidden">
+              <div className="flex-1 px-3 sm:px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-lg font-mono text-xs sm:text-sm" style={{ wordBreak: 'break-all', overflowWrap: 'anywhere' }}>
                 {shortUrl}
               </div>
               <button
