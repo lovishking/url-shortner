@@ -153,17 +153,17 @@ export default function StatsPage() {
           </div>
 
           {/* Short URL Display */}
-          <div className="bg-blue-50 rounded-lg p-4 sm:p-6 mb-6 sm:mb-8">
-            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+          <div className="bg-blue-50 rounded-lg p-3 sm:p-4 md:p-6 mb-4 sm:mb-6">
+            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2 sm:mb-3">
               Shortened URL
             </label>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-              <div className="flex-1 px-3 sm:px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-lg font-mono text-xs sm:text-sm" style={{ wordBreak: 'break-all', overflowWrap: 'anywhere' }}>
+            <div className="flex flex-col gap-2 sm:gap-3">
+              <div className="w-full px-3 py-3 sm:px-4 sm:py-3 bg-white border-2 border-gray-200 rounded-lg font-mono text-xs sm:text-sm leading-relaxed min-h-[44px] flex items-center" style={{ wordBreak: 'break-all', overflowWrap: 'anywhere', lineHeight: '1.6' }}>
                 {shortUrl}
               </div>
               <button
                 onClick={copyToClipboard}
-                className="px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2 whitespace-nowrap"
+                className="w-full sm:w-auto px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:bg-blue-800 transition-colors flex items-center justify-center gap-2 font-medium text-sm sm:text-base shadow-sm"
               >
                 {copied ? (
                   <>
@@ -180,12 +180,12 @@ export default function StatsPage() {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span className="text-sm sm:text-base">Copied!</span>
+                    <span>Copied!</span>
                   </>
                 ) : (
                   <>
                     <svg
-                      className="h-4 w-4 sm:h-5 sm:w-5"
+                      className="h-5 w-5"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -197,7 +197,7 @@ export default function StatsPage() {
                         d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
                       />
                     </svg>
-                    <span className="text-sm sm:text-base">Copy</span>
+                    <span>Copy URL</span>
                   </>
                 )}
               </button>
@@ -205,15 +205,15 @@ export default function StatsPage() {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
-            <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-4 sm:p-6 text-white">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+            <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-5 sm:p-6 text-white shadow-md">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-blue-100 text-xs sm:text-sm font-medium">Total Clicks</p>
-                  <p className="text-3xl sm:text-4xl font-bold mt-1 sm:mt-2">{link.total_clicks}</p>
+                  <p className="text-blue-100 text-sm font-medium mb-1">Total Clicks</p>
+                  <p className="text-4xl sm:text-5xl font-bold">{link.total_clicks}</p>
                 </div>
                 <svg
-                  className="h-10 w-10 sm:h-12 sm:w-12 text-blue-200"
+                  className="h-12 w-12 sm:h-14 sm:w-14 text-blue-200 opacity-80"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -228,14 +228,14 @@ export default function StatsPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-lg p-4 sm:p-6 text-white">
+            <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-5 sm:p-6 text-white shadow-md">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-green-100 text-xs sm:text-sm font-medium">Days Active</p>
-                  <p className="text-3xl sm:text-4xl font-bold mt-1 sm:mt-2">{getDaysSinceCreation(link.created_at)}</p>
+                  <p className="text-green-100 text-sm font-medium mb-1">Days Active</p>
+                  <p className="text-4xl sm:text-5xl font-bold">{getDaysSinceCreation(link.created_at)}</p>
                 </div>
                 <svg
-                  className="h-10 w-10 sm:h-12 sm:w-12 text-green-200"
+                  className="h-12 w-12 sm:h-14 sm:w-14 text-green-200 opacity-80"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -253,54 +253,53 @@ export default function StatsPage() {
 
           {/* Details Table */}
           <div className="space-y-3 sm:space-y-4">
-            <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Link Details</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Link Details</h2>
             
-            <div className="border border-gray-200 rounded-lg overflow-hidden">
-              <div className="grid grid-cols-1 divide-y divide-gray-200">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 p-3 sm:p-4 hover:bg-gray-50">
-                  <div className="font-medium text-gray-700 text-sm sm:text-base">Short Code</div>
-                  <div className="sm:col-span-2 font-mono text-gray-900 text-sm sm:text-base break-all">{link.code}</div>
+            <div className="border-2 border-gray-200 rounded-xl overflow-hidden shadow-sm">
+              <div className="divide-y-2 divide-gray-100">
+                <div className="p-4 sm:p-5 hover:bg-gray-50 transition-colors">
+                  <div className="font-semibold text-gray-600 text-xs sm:text-sm mb-1 uppercase tracking-wide">Short Code</div>
+                  <div className="font-mono text-gray-900 text-base sm:text-lg font-medium break-all">{link.code}</div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 p-3 sm:p-4 hover:bg-gray-50">
-                  <div className="font-medium text-gray-700 text-sm sm:text-base">Original URL</div>
-                  <div className="sm:col-span-2">
-                    <a
-                      href={link.long_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 break-all text-sm sm:text-base"
-                    >
-                      {link.long_url}
-                    </a>
-                  </div>
+                <div className="p-4 sm:p-5 hover:bg-gray-50 transition-colors">
+                  <div className="font-semibold text-gray-600 text-xs sm:text-sm mb-2 uppercase tracking-wide">Original URL</div>
+                  <a
+                    href={link.long_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-700 hover:underline break-all text-sm sm:text-base leading-relaxed"
+                    style={{ wordBreak: 'break-all', overflowWrap: 'anywhere' }}
+                  >
+                    {link.long_url}
+                  </a>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 p-3 sm:p-4 hover:bg-gray-50">
-                  <div className="font-medium text-gray-700 text-sm sm:text-base">Created At</div>
-                  <div className="sm:col-span-2 text-gray-900 text-sm sm:text-base">{formatDate(link.created_at)}</div>
+                <div className="p-4 sm:p-5 hover:bg-gray-50 transition-colors">
+                  <div className="font-semibold text-gray-600 text-xs sm:text-sm mb-1 uppercase tracking-wide">Created At</div>
+                  <div className="text-gray-900 text-base sm:text-lg">{formatDate(link.created_at)}</div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 p-3 sm:p-4 hover:bg-gray-50">
-                  <div className="font-medium text-gray-700 text-sm sm:text-base">Last Clicked</div>
-                  <div className="sm:col-span-2 text-gray-900 text-sm sm:text-base">{formatDate(link.last_clicked)}</div>
+                <div className="p-4 sm:p-5 hover:bg-gray-50 transition-colors">
+                  <div className="font-semibold text-gray-600 text-xs sm:text-sm mb-1 uppercase tracking-wide">Last Clicked</div>
+                  <div className="text-gray-900 text-base sm:text-lg">{formatDate(link.last_clicked)}</div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 p-3 sm:p-4 hover:bg-gray-50">
-                  <div className="font-medium text-gray-700 text-sm sm:text-base">Total Clicks</div>
-                  <div className="sm:col-span-2 text-gray-900 font-semibold text-sm sm:text-base">{link.total_clicks}</div>
+                <div className="p-4 sm:p-5 hover:bg-gray-50 transition-colors">
+                  <div className="font-semibold text-gray-600 text-xs sm:text-sm mb-1 uppercase tracking-wide">Total Clicks</div>
+                  <div className="text-gray-900 font-bold text-lg sm:text-xl">{link.total_clicks}</div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Test Link Button */}
-          <div className="mt-6 sm:mt-8 text-center">
+          <div className="mt-6 sm:mt-8">
             <a
               href={`/${link.code}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center space-x-2 bg-gray-100 text-gray-700 py-2 sm:py-2.5 px-4 sm:px-6 rounded-lg hover:bg-gray-200 transition-colors text-sm sm:text-base w-full sm:w-auto"
+              className="flex items-center justify-center gap-2 bg-gray-100 text-gray-700 py-3 px-5 rounded-lg hover:bg-gray-200 active:bg-gray-300 transition-colors text-sm sm:text-base font-medium w-full shadow-sm"
             >
               <svg
                 className="h-4 w-4 sm:h-5 sm:w-5"
