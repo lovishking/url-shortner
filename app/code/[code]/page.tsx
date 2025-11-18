@@ -120,16 +120,16 @@ export default function StatsPage() {
   const shortUrl = `${typeof window !== 'undefined' ? window.location.origin : ''}/${code}`;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-4 sm:py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="mb-6">
+        <div className="mb-4 sm:mb-6">
           <Link
             href="/"
-            className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+            className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm sm:text-base"
           >
             <svg
-              className="h-5 w-5 mr-1"
+              className="h-4 w-4 sm:h-5 sm:w-5 mr-1"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -146,32 +146,32 @@ export default function StatsPage() {
         </div>
 
         {/* Main Card */}
-        <div className="bg-white rounded-lg shadow-md p-8">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Link Statistics</h1>
-            <p className="text-gray-600">Detailed analytics for your shortened link</p>
+        <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 md:p-8">
+          <div className="text-center mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Link Statistics</h1>
+            <p className="text-sm sm:text-base text-gray-600">Detailed analytics for your shortened link</p>
           </div>
 
           {/* Short URL Display */}
-          <div className="bg-blue-50 rounded-lg p-6 mb-8">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+          <div className="bg-blue-50 rounded-lg p-4 sm:p-6 mb-6 sm:mb-8">
+            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
               Shortened URL
             </label>
-            <div className="flex items-center space-x-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
               <input
                 type="text"
                 value={shortUrl}
                 readOnly
-                className="flex-1 px-4 py-3 bg-white border border-gray-300 rounded-lg font-mono text-lg"
+                className="flex-1 px-3 sm:px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-lg font-mono text-sm sm:text-base break-all"
               />
               <button
                 onClick={copyToClipboard}
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2"
+                className="px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2 whitespace-nowrap"
               >
                 {copied ? (
                   <>
                     <svg
-                      className="h-5 w-5"
+                      className="h-4 w-4 sm:h-5 sm:w-5"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -183,12 +183,12 @@ export default function StatsPage() {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span>Copied!</span>
+                    <span className="text-sm sm:text-base">Copied!</span>
                   </>
                 ) : (
                   <>
                     <svg
-                      className="h-5 w-5"
+                      className="h-4 w-4 sm:h-5 sm:w-5"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -200,7 +200,7 @@ export default function StatsPage() {
                         d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
                       />
                     </svg>
-                    <span>Copy</span>
+                    <span className="text-sm sm:text-base">Copy</span>
                   </>
                 )}
               </button>
@@ -208,15 +208,15 @@ export default function StatsPage() {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-6 text-white">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
+            <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-4 sm:p-6 text-white">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-blue-100 text-sm font-medium">Total Clicks</p>
-                  <p className="text-4xl font-bold mt-2">{link.total_clicks}</p>
+                  <p className="text-blue-100 text-xs sm:text-sm font-medium">Total Clicks</p>
+                  <p className="text-3xl sm:text-4xl font-bold mt-1 sm:mt-2">{link.total_clicks}</p>
                 </div>
                 <svg
-                  className="h-12 w-12 text-blue-200"
+                  className="h-10 w-10 sm:h-12 sm:w-12 text-blue-200"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -231,14 +231,14 @@ export default function StatsPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-lg p-6 text-white">
+            <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-lg p-4 sm:p-6 text-white">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-green-100 text-sm font-medium">Days Active</p>
-                  <p className="text-4xl font-bold mt-2">{getDaysSinceCreation(link.created_at)}</p>
+                  <p className="text-green-100 text-xs sm:text-sm font-medium">Days Active</p>
+                  <p className="text-3xl sm:text-4xl font-bold mt-1 sm:mt-2">{getDaysSinceCreation(link.created_at)}</p>
                 </div>
                 <svg
-                  className="h-12 w-12 text-green-200"
+                  className="h-10 w-10 sm:h-12 sm:w-12 text-green-200"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -255,58 +255,58 @@ export default function StatsPage() {
           </div>
 
           {/* Details Table */}
-          <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-gray-900">Link Details</h2>
+          <div className="space-y-3 sm:space-y-4">
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Link Details</h2>
             
             <div className="border border-gray-200 rounded-lg overflow-hidden">
               <div className="grid grid-cols-1 divide-y divide-gray-200">
-                <div className="grid grid-cols-3 gap-4 p-4 hover:bg-gray-50">
-                  <div className="font-medium text-gray-700">Short Code</div>
-                  <div className="col-span-2 font-mono text-gray-900">{link.code}</div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 p-3 sm:p-4 hover:bg-gray-50">
+                  <div className="font-medium text-gray-700 text-sm sm:text-base">Short Code</div>
+                  <div className="sm:col-span-2 font-mono text-gray-900 text-sm sm:text-base break-all">{link.code}</div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-4 p-4 hover:bg-gray-50">
-                  <div className="font-medium text-gray-700">Original URL</div>
-                  <div className="col-span-2">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 p-3 sm:p-4 hover:bg-gray-50">
+                  <div className="font-medium text-gray-700 text-sm sm:text-base">Original URL</div>
+                  <div className="sm:col-span-2">
                     <a
                       href={link.long_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 break-all"
+                      className="text-blue-600 hover:text-blue-800 break-all text-sm sm:text-base"
                     >
                       {link.long_url}
                     </a>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-4 p-4 hover:bg-gray-50">
-                  <div className="font-medium text-gray-700">Created At</div>
-                  <div className="col-span-2 text-gray-900">{formatDate(link.created_at)}</div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 p-3 sm:p-4 hover:bg-gray-50">
+                  <div className="font-medium text-gray-700 text-sm sm:text-base">Created At</div>
+                  <div className="sm:col-span-2 text-gray-900 text-sm sm:text-base">{formatDate(link.created_at)}</div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-4 p-4 hover:bg-gray-50">
-                  <div className="font-medium text-gray-700">Last Clicked</div>
-                  <div className="col-span-2 text-gray-900">{formatDate(link.last_clicked)}</div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 p-3 sm:p-4 hover:bg-gray-50">
+                  <div className="font-medium text-gray-700 text-sm sm:text-base">Last Clicked</div>
+                  <div className="sm:col-span-2 text-gray-900 text-sm sm:text-base">{formatDate(link.last_clicked)}</div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-4 p-4 hover:bg-gray-50">
-                  <div className="font-medium text-gray-700">Total Clicks</div>
-                  <div className="col-span-2 text-gray-900 font-semibold">{link.total_clicks}</div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 p-3 sm:p-4 hover:bg-gray-50">
+                  <div className="font-medium text-gray-700 text-sm sm:text-base">Total Clicks</div>
+                  <div className="sm:col-span-2 text-gray-900 font-semibold text-sm sm:text-base">{link.total_clicks}</div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Test Link Button */}
-          <div className="mt-8 text-center">
+          <div className="mt-6 sm:mt-8 text-center">
             <a
               href={`/${link.code}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 bg-gray-100 text-gray-700 py-2 px-6 rounded-lg hover:bg-gray-200 transition-colors"
+              className="inline-flex items-center justify-center space-x-2 bg-gray-100 text-gray-700 py-2 sm:py-2.5 px-4 sm:px-6 rounded-lg hover:bg-gray-200 transition-colors text-sm sm:text-base w-full sm:w-auto"
             >
               <svg
-                className="h-5 w-5"
+                className="h-4 w-4 sm:h-5 sm:w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
