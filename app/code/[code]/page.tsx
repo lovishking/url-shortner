@@ -158,12 +158,9 @@ export default function StatsPage() {
               Shortened URL
             </label>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-              <input
-                type="text"
-                value={shortUrl}
-                readOnly
-                className="flex-1 px-3 sm:px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-lg font-mono text-sm sm:text-base break-all"
-              />
+              <div className="flex-1 px-3 sm:px-4 py-2 sm:py-3 bg-white border border-gray-300 rounded-lg font-mono text-xs sm:text-sm break-all overflow-hidden">
+                {shortUrl}
+              </div>
               <button
                 onClick={copyToClipboard}
                 className="px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2 whitespace-nowrap"
