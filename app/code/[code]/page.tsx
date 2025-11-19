@@ -157,8 +157,8 @@ export default function StatsPage() {
             <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2 sm:mb-3">
               Shortened URL
             </label>
-            <div className="flex flex-col gap-2 sm:gap-3">
-              <div className="w-full px-3 py-3 sm:px-4 sm:py-3 bg-white border-2 border-gray-200 rounded-lg font-mono text-xs sm:text-sm leading-relaxed min-h-[44px] flex items-center" style={{ wordBreak: 'break-all', overflowWrap: 'anywhere', lineHeight: '1.6' }}>
+            <div className="space-y-2 sm:space-y-3">
+              <div className="w-full px-3 py-3 sm:px-4 sm:py-3 bg-white border-2 border-gray-200 rounded-lg font-mono text-[11px] sm:text-sm leading-[1.7] min-h-[48px] flex items-center overflow-hidden" style={{ wordBreak: 'break-all', overflowWrap: 'anywhere' }}>
                 {shortUrl}
               </div>
               <button
